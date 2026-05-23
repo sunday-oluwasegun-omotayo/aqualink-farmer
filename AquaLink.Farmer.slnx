@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="AquaLink.Farmer.API/AquaLink.Farmer.API.csproj" />
+  <Project Path="AquaLink.Farmer.Application/AquaLink.Farmer.Application.csproj" />
+  <Project Path="AquaLink.Farmer.Domain/AquaLink.Farmer.Domain.csproj" />
+  <Project Path="AquaLink.Farmer.Infrastructure/AquaLink.Farmer.Infrastructure.csproj" />
+  <Project Path="AquaLink.Farmer.Tests/AquaLink.Farmer.Tests.csproj" />
+</Solution>

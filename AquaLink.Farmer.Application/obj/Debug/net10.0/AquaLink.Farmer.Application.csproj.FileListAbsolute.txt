@@ -1,0 +1,15 @@
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\bin\Debug\net10.0\AquaLink.Farmer.Application.deps.json
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\bin\Debug\net10.0\AquaLink.Farmer.Application.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\bin\Debug\net10.0\AquaLink.Farmer.Application.pdb
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\bin\Debug\net10.0\AquaLink.Farmer.Domain.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\bin\Debug\net10.0\AquaLink.Farmer.Domain.pdb
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.Farmer.Application.csproj.AssemblyReference.cache
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.Farmer.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.Farmer.Application.AssemblyInfoInputs.cache
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.Farmer.Application.AssemblyInfo.cs
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.Farmer.Application.csproj.CoreCompileInputs.cache
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.ACCAEEE0.Up2Date
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.Farmer.Application.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\refint\AquaLink.Farmer.Application.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\AquaLink.Farmer.Application.pdb
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Application\obj\Debug\net10.0\ref\AquaLink.Farmer.Application.dll
