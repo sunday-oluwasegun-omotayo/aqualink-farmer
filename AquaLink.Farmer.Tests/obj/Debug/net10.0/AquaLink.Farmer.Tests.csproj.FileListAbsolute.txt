@@ -100,3 +100,4 @@ C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\refint\Aqu
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\AquaLink.Farmer.Tests.pdb
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\AquaLink.Farmer.Tests.genruntimeconfig.cache
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\ref\AquaLink.Farmer.Tests.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\AquaLink.Farmer.Tests.sourcelink.json
