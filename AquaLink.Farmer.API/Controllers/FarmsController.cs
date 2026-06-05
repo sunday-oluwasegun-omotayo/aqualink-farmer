@@ -1,6 +1,7 @@
 ﻿using AquaLink.Farmer.Application.FarmCycles;
 using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 
@@ -9,6 +10,7 @@ namespace AquaLink.Farmer.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
+[Authorize]
 public class FarmsController : ControllerBase
 {
     private readonly ISender _sender;
@@ -18,7 +20,9 @@ public class FarmsController : ControllerBase
         _sender = sender;
     }
 
+
     [HttpPost]
+    [Authorize(Roles = "Farmer")]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> CreateFarmCycle(
@@ -62,6 +66,7 @@ public class FarmsController : ControllerBase
     }
 
     [HttpPatch("{id:guid}/harvest")]
+    [Authorize(Roles = "Farmer")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

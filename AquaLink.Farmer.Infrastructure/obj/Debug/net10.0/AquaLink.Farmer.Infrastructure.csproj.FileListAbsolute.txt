@@ -1,4 +1,5 @@
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\bin\Debug\net10.0\AquaLink.Farmer.Infrastructure.deps.json
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\bin\Debug\net10.0\AquaLink.Farmer.Infrastructure.runtimeconfig.json
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\bin\Debug\net10.0\AquaLink.Farmer.Infrastructure.dll
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\bin\Debug\net10.0\AquaLink.Farmer.Infrastructure.pdb
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\bin\Debug\net10.0\AquaLink.Farmer.Application.dll
@@ -10,11 +11,10 @@ C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\A
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.AssemblyInfo.cs
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.sourcelink.json
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.ED3E4222.Up2Date
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.dll
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\refint\AquaLink.Farmer.Infrastructure.dll
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.pdb
-C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\ref\AquaLink.Farmer.Infrastructure.dll
-C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\bin\Debug\net10.0\AquaLink.Farmer.Infrastructure.runtimeconfig.json
-C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.sourcelink.json
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\AquaLink.Farmer.Infrastructure.genruntimeconfig.cache
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Infrastructure\obj\Debug\net10.0\ref\AquaLink.Farmer.Infrastructure.dll
