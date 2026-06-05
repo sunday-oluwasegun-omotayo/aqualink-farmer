@@ -1,6 +1,9 @@
 ﻿using AquaLink.Farmer.Application.FarmCycles;
+using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+
 
 namespace AquaLink.Farmer.API.Controllers;
 
@@ -22,8 +25,22 @@ public class FarmsController : ControllerBase
         [FromBody] CreateFarmCycleCommand command,
         CancellationToken cancellationToken)
     {
-        var id = await _sender.Send(command, cancellationToken);
-        return CreatedAtAction(nameof(CreateFarmCycle), new { id }, new { id });
+        try
+        {
+            var id = await _sender.Send(command, cancellationToken);
+            return CreatedAtAction(nameof(GetFarmCycle), new { id }, new { id });
+        }
+        catch (ValidationException ex)
+        {
+            return BadRequest(new
+            {
+                errors = ex.Errors.Select(e => new
+                {
+                    field = e.PropertyName,
+                    message = e.ErrorMessage
+                })
+            });
+        }
     }
 
     [HttpGet("{id:guid}")]
@@ -65,6 +82,18 @@ public class FarmsController : ControllerBase
 
             return NoContent();
         }
+        catch (ValidationException ex)
+        {
+            return BadRequest(new
+            {
+                errors = ex.Errors.Select(e => new
+                {
+                    field = e.PropertyName,
+                    message = e.ErrorMessage
+                })
+            });
+        }
+
         catch (KeyNotFoundException ex)
         {
             return NotFound(new { message = ex.Message });

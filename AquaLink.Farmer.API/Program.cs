@@ -1,5 +1,9 @@
+using AquaLink.Farmer.Application.Common;
+using AquaLink.Farmer.Application.FarmCycles;
 using AquaLink.Farmer.Application.Interfaces;
 using AquaLink.Farmer.Infrastructure.Persistence;
+using FluentValidation;
+using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +25,14 @@ builder.Services.AddMediatR(cfg =>
         typeof(AquaLink.Farmer.Application.FarmCycles.CreateFarmCycleCommand).Assembly);
     cfg.RegisterServicesFromAssembly(
         typeof(AquaLink.Farmer.Application.FarmCycles.GetFarmCycleQuery).Assembly);
+    cfg.AddBehavior(
+        typeof(IPipelineBehavior<,>),
+        typeof(ValidationBehaviour<,>));
 });
+
+builder.Services.AddValidatorsFromAssemblyContaining<CreateFarmCycleCommandValidator>();
+
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
