@@ -44,4 +44,39 @@ public class FarmsController : ControllerBase
         }
     }
 
+    [HttpPatch("{id:guid}/harvest")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> RecordHarvest(
+    Guid id,
+    [FromBody] RecordHarvestRequest request,
+    CancellationToken cancellationToken)
+    {
+        try
+        {
+            await _sender.Send(
+                new RecordHarvestCommand(
+                    id,
+                    request.HarvestedWeightKg,
+                    request.SalePricePerKg,
+                    request.HarvestedAt),
+                cancellationToken);
+
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
 }
+public record RecordHarvestRequest(
+       decimal HarvestedWeightKg,
+       decimal SalePricePerKg,
+       DateOnly HarvestedAt);

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AquaLink.Farmer.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06cfc36553888442a88728a5fd0c48fb172b8fdc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+529045991487bbd3e8fa11170183dec6cbf408bc")]
 [assembly: System.Reflection.AssemblyProductAttribute("AquaLink.Farmer.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AquaLink.Farmer.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

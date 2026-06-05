@@ -16,9 +16,12 @@ builder.Services.AddScoped<IFarmerDbContext>(provider =>
     provider.GetRequiredService<AquaLinkFarmerDbContext>());
 
 builder.Services.AddMediatR(cfg =>
+{
     cfg.RegisterServicesFromAssembly(
-        typeof(AquaLink.Farmer.Application.FarmCycles.CreateFarmCycleCommand).Assembly));
-
+        typeof(AquaLink.Farmer.Application.FarmCycles.CreateFarmCycleCommand).Assembly);
+    cfg.RegisterServicesFromAssembly(
+        typeof(AquaLink.Farmer.Application.FarmCycles.GetFarmCycleQuery).Assembly);
+});
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

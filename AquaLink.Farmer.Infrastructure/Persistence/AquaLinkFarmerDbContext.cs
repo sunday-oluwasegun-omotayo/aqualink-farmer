@@ -26,6 +26,12 @@ public class AquaLinkFarmerDbContext : DbContext, IFarmerDbContext
 
             entity.Property(e => e.Status)
                 .HasConversion<string>();
+
+            entity.Property(e => e.HarvestedWeightKg)
+                .HasPrecision(10, 2);
+
+            entity.Property(e => e.SalePricePerKg)
+                .HasPrecision(10, 2);
         });
     }
 }

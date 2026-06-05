@@ -43,6 +43,30 @@ public class FarmCycle
             CreatedAt = DateTime.UtcNow
         };
     }
+
+    public decimal? HarvestedWeightKg { get; private set; }
+    public decimal? SalePricePerKg { get; private set; }
+    public DateOnly? HarvestedAt { get; private set; }
+
+    public void RecordHarvest(
+        decimal harvestedWeightKg,
+        decimal salePricePerKg,
+        DateOnly harvestedAt)
+    {
+        if (Status != FarmCycleStatus.Active)
+            throw new InvalidOperationException("Only active cycles can be harvested.");
+
+        if (harvestedWeightKg <= 0)
+            throw new ArgumentException("Harvested weight must be positive.");
+
+        if (salePricePerKg <= 0)
+            throw new ArgumentException("Sale price must be positive.");
+
+        HarvestedWeightKg = harvestedWeightKg;
+        SalePricePerKg = salePricePerKg;
+        HarvestedAt = harvestedAt;
+        Status = FarmCycleStatus.Harvested;
+    }
 }
 
 public enum FarmCycleStatus
