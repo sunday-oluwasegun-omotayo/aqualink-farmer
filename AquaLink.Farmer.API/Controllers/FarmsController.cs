@@ -75,6 +75,19 @@ public class FarmsController : ControllerBase
         }
     }
 
+    [HttpGet]
+    [ProducesResponseType(typeof(List<FarmCycleDto>), StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetFarmCycles(
+    [FromQuery] Guid farmerId,
+    CancellationToken cancellationToken)
+    {
+        var result = await _sender.Send(
+            new GetFarmCyclesQuery(farmerId),
+            cancellationToken);
+
+        return Ok(result);
+    }
+
 }
 public record RecordHarvestRequest(
        decimal HarvestedWeightKg,
