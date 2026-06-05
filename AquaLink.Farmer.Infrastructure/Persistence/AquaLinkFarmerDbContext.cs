@@ -1,9 +1,10 @@
-﻿using AquaLink.Farmer.Domain.Entities;
+﻿using AquaLink.Farmer.Application.Interfaces;
+using AquaLink.Farmer.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace AquaLink.Farmer.Infrastructure.Persistence;
 
-public class AquaLinkFarmerDbContext : DbContext
+public class AquaLinkFarmerDbContext : DbContext, IFarmerDbContext
 {
     public AquaLinkFarmerDbContext(
         DbContextOptions<AquaLinkFarmerDbContext> options) : base(options) { }
