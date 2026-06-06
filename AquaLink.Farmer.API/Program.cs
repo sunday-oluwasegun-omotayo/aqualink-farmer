@@ -33,6 +33,8 @@ builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(
         typeof(AquaLink.Farmer.Application.FarmCycles.CreateFarmCycleCommand).Assembly);
     cfg.RegisterServicesFromAssembly(
+        typeof(AquaLink.Cooperative.Application.Cooperatives.CreateCooperativeGroupCommand).Assembly);
+    cfg.RegisterServicesFromAssembly(
         typeof(AquaLink.Farmer.Application.FarmCycles.GetFarmCycleQuery).Assembly);
     cfg.AddBehavior(
         typeof(IPipelineBehavior<,>),

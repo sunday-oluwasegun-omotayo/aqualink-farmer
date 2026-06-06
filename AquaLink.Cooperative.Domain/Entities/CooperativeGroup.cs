@@ -9,7 +9,7 @@ public class CooperativeGroup
     public Guid Id { get; private set; }
     public string Name { get; private set; } = string.Empty;
     public string Description { get; private set; } = string.Empty;
-    public Guid TreasurerMemberId { get; private set; }
+    public Guid TreasurerMemberId { get; internal set; }
     public CooperativeStatus Status { get; private set; }
     public DateTime CreatedAt { get; private set; }
 
@@ -28,21 +28,31 @@ public class CooperativeGroup
     private CooperativeGroup() { }
 
     public static CooperativeGroup Create(
-        string name,
-        string description,
-        Guid treasurerMemberId)
+    string name,
+    string description,
+    Guid treasurerUserId,
+    string treasurerFullName,
+    string treasurerPhoneNumber)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(name);
 
-        return new CooperativeGroup
+        var group = new CooperativeGroup
         {
             Id = Guid.NewGuid(),
             Name = name.Trim(),
             Description = description.Trim(),
-            TreasurerMemberId = treasurerMemberId,
             Status = CooperativeStatus.Active,
             CreatedAt = DateTime.UtcNow
         };
+
+        // Add treasurer as first member
+        var treasurer = group.AddMember(
+            treasurerUserId,
+            treasurerFullName,
+            treasurerPhoneNumber);
+
+        group.TreasurerMemberId = treasurer.Id;
+        return group;
     }
 
     public Member AddMember(

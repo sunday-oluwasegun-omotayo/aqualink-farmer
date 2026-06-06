@@ -715,6 +715,7 @@
       "AquaLink.Cooperative.Application/1.0.0": {
         "dependencies": {
           "AquaLink.Cooperative.Domain": "1.0.0",
+          "MediatR": "14.1.0",
           "Microsoft.EntityFrameworkCore": "10.0.8"
         },
         "runtime": {
