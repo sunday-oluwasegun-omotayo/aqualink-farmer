@@ -8,6 +8,8 @@
     ".NETCoreApp,Version=v10.0": {
       "AquaLink.Farmer.API/1.0.0": {
         "dependencies": {
+          "AquaLink.Cooperative.Application": "1.0.0",
+          "AquaLink.Cooperative.Infrastructure": "1.0.0",
           "AquaLink.Farmer.Application": "1.0.0",
           "AquaLink.Farmer.Infrastructure": "1.0.0",
           "MediatR": "14.1.0",
@@ -16,6 +18,7 @@
           "Microsoft.EntityFrameworkCore": "10.0.8",
           "Microsoft.EntityFrameworkCore.Design": "10.0.8",
           "Swashbuckle.AspNetCore": "10.2.1",
+          "Swashbuckle.AspNetCore.Filters": "10.0.1",
           "System.IdentityModel.Tokens.Jwt": "8.19.1"
         },
         "runtime": {
@@ -557,11 +560,46 @@
           }
         }
       },
+      "Scrutor/3.3.0": {
+        "dependencies": {
+          "Microsoft.Extensions.DependencyModel": "10.0.8"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Scrutor.dll": {
+            "assemblyVersion": "3.0.2.0",
+            "fileVersion": "3.0.2.0"
+          }
+        }
+      },
       "Swashbuckle.AspNetCore/10.2.1": {
         "dependencies": {
           "Swashbuckle.AspNetCore.Swagger": "10.2.1",
           "Swashbuckle.AspNetCore.SwaggerGen": "10.2.1",
           "Swashbuckle.AspNetCore.SwaggerUI": "10.2.1"
+        }
+      },
+      "Swashbuckle.AspNetCore.Filters/10.0.1": {
+        "dependencies": {
+          "Scrutor": "3.3.0",
+          "Swashbuckle.AspNetCore.Filters.Abstractions": "10.0.1",
+          "Swashbuckle.AspNetCore.SwaggerGen": "10.2.1"
+        },
+        "runtime": {
+          "lib/net8.0/Swashbuckle.AspNetCore.Filters.dll": {
+            "assemblyVersion": "10.0.1.0",
+            "fileVersion": "10.0.1.0"
+          }
+        }
+      },
+      "Swashbuckle.AspNetCore.Filters.Abstractions/10.0.1": {
+        "dependencies": {
+          "Swashbuckle.AspNetCore.SwaggerGen": "10.2.1"
+        },
+        "runtime": {
+          "lib/net8.0/Swashbuckle.AspNetCore.Filters.Abstractions.dll": {
+            "assemblyVersion": "10.0.1.0",
+            "fileVersion": "10.0.1.0"
+          }
         }
       },
       "Swashbuckle.AspNetCore.Swagger/10.2.1": {
@@ -671,6 +709,36 @@
           "lib/net10.0/System.IdentityModel.Tokens.Jwt.dll": {
             "assemblyVersion": "8.19.1.0",
             "fileVersion": "8.19.1.26153"
+          }
+        }
+      },
+      "AquaLink.Cooperative.Application/1.0.0": {
+        "dependencies": {
+          "AquaLink.Cooperative.Domain": "1.0.0"
+        },
+        "runtime": {
+          "AquaLink.Cooperative.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AquaLink.Cooperative.Domain/1.0.0": {
+        "runtime": {
+          "AquaLink.Cooperative.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "AquaLink.Cooperative.Infrastructure/1.0.0": {
+        "dependencies": {
+          "AquaLink.Cooperative.Application": "1.0.0"
+        },
+        "runtime": {
+          "AquaLink.Cooperative.Infrastructure.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
           }
         }
       },
@@ -934,12 +1002,33 @@
       "path": "npgsql.entityframeworkcore.postgresql/10.0.1",
       "hashPath": "npgsql.entityframeworkcore.postgresql.10.0.1.nupkg.sha512"
     },
+    "Scrutor/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BwqCnFzp2/Z+pq17iztxlIkR/ZANyPRR4PdE57WL1w/JW4AM/2imoxBWTL3+G+YXA46ce4s9OUgwWqTXYrtI8A==",
+      "path": "scrutor/3.3.0",
+      "hashPath": "scrutor.3.3.0.nupkg.sha512"
+    },
     "Swashbuckle.AspNetCore/10.2.1": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-SDU6akgCV/H4jFMRfyJ0mgO5jWOuuAqekvEThXg8c/LjnfNz5Nkaz+RUpeTVJKWIRX4wDKC/6R3ogJ4AsRE32A==",
       "path": "swashbuckle.aspnetcore/10.2.1",
       "hashPath": "swashbuckle.aspnetcore.10.2.1.nupkg.sha512"
+    },
+    "Swashbuckle.AspNetCore.Filters/10.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Bbmg6UelUTrCHmheejcuiGyYrJ+mO5GyV4pG7ZEhrX9P+gc0UppUQTVb+6HyEBsFsXDrBWvOXp/oqnTTz8wCEA==",
+      "path": "swashbuckle.aspnetcore.filters/10.0.1",
+      "hashPath": "swashbuckle.aspnetcore.filters.10.0.1.nupkg.sha512"
+    },
+    "Swashbuckle.AspNetCore.Filters.Abstractions/10.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-YTOZBnL/STbpkSGldDnvhtW0ci4h3deRXn7zfhN3dA+Xck/jdteIGxthiRfnEfNtTICPkBxRRzd9U6KKSPmNpA==",
+      "path": "swashbuckle.aspnetcore.filters.abstractions/10.0.1",
+      "hashPath": "swashbuckle.aspnetcore.filters.abstractions.10.0.1.nupkg.sha512"
     },
     "Swashbuckle.AspNetCore.Swagger/10.2.1": {
       "type": "package",
@@ -1017,6 +1106,21 @@
       "sha512": "sha512-2VHcRtT95GAcW1E3aVBLvL2rAAMxKHXKMXKXFyWzwgkdFXZPMMvP8tVOfnRydL4vTr1RirNuGC6T8VSEF2YsPQ==",
       "path": "system.identitymodel.tokens.jwt/8.19.1",
       "hashPath": "system.identitymodel.tokens.jwt.8.19.1.nupkg.sha512"
+    },
+    "AquaLink.Cooperative.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AquaLink.Cooperative.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AquaLink.Cooperative.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "AquaLink.Farmer.Application/1.0.0": {
       "type": "project",

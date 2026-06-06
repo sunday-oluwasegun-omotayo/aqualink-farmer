@@ -1006,6 +1006,42 @@
           }
         }
       },
+      "AquaLink.Cooperative.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "AquaLink.Cooperative.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AquaLink.Cooperative.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AquaLink.Cooperative.Application.dll": {}
+        }
+      },
+      "AquaLink.Cooperative.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/AquaLink.Cooperative.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AquaLink.Cooperative.Domain.dll": {}
+        }
+      },
+      "AquaLink.Cooperative.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "AquaLink.Cooperative.Application": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/AquaLink.Cooperative.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AquaLink.Cooperative.Infrastructure.dll": {}
+        }
+      },
       "AquaLink.Farmer.Application/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -3275,6 +3311,21 @@
         "system.identitymodel.tokens.jwt.nuspec"
       ]
     },
+    "AquaLink.Cooperative.Application/1.0.0": {
+      "type": "project",
+      "path": "../AquaLink.Cooperative.Application/AquaLink.Cooperative.Application.csproj",
+      "msbuildProject": "../AquaLink.Cooperative.Application/AquaLink.Cooperative.Application.csproj"
+    },
+    "AquaLink.Cooperative.Domain/1.0.0": {
+      "type": "project",
+      "path": "../AquaLink.Cooperative.Domain/AquaLink.Cooperative.Domain.csproj",
+      "msbuildProject": "../AquaLink.Cooperative.Domain/AquaLink.Cooperative.Domain.csproj"
+    },
+    "AquaLink.Cooperative.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../AquaLink.Cooperative.Infrastructure/AquaLink.Cooperative.Infrastructure.csproj",
+      "msbuildProject": "../AquaLink.Cooperative.Infrastructure/AquaLink.Cooperative.Infrastructure.csproj"
+    },
     "AquaLink.Farmer.Application/1.0.0": {
       "type": "project",
       "path": "../AquaLink.Farmer.Application/AquaLink.Farmer.Application.csproj",
@@ -3293,6 +3344,8 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "AquaLink.Cooperative.Application >= 1.0.0",
+      "AquaLink.Cooperative.Infrastructure >= 1.0.0",
       "AquaLink.Farmer.Application >= 1.0.0",
       "AquaLink.Farmer.Infrastructure >= 1.0.0",
       "MediatR >= 14.1.0",
@@ -3339,6 +3392,12 @@
           "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {
+            "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Cooperative.Application\\AquaLink.Cooperative.Application.csproj": {
+              "projectPath": "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Cooperative.Application\\AquaLink.Cooperative.Application.csproj"
+            },
+            "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Cooperative.Infrastructure\\AquaLink.Cooperative.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Cooperative.Infrastructure\\AquaLink.Cooperative.Infrastructure.csproj"
+            },
             "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Farmer.Application\\AquaLink.Farmer.Application.csproj": {
               "projectPath": "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Farmer.Application\\AquaLink.Farmer.Application.csproj"
             },

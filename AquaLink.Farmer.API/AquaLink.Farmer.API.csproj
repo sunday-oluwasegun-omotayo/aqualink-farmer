@@ -20,12 +20,15 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="10.0.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.19.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AquaLink.Farmer.Application\AquaLink.Farmer.Application.csproj" />
     <ProjectReference Include="..\AquaLink.Farmer.Infrastructure\AquaLink.Farmer.Infrastructure.csproj" />
+    <ProjectReference Include="..\AquaLink.Cooperative.Application\AquaLink.Cooperative.Application.csproj" />
+    <ProjectReference Include="..\AquaLink.Cooperative.Infrastructure\AquaLink.Cooperative.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

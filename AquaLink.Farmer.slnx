@@ -2,6 +2,10 @@
   <Folder Name="/Solution Items/">
     <File Path="docker-compose.yml" />
   </Folder>
+  <Project Path="AquaLink.Cooperative.Application/AquaLink.Cooperative.Application.csproj" />
+  <Project Path="AquaLink.Cooperative.Domain/AquaLink.Cooperative.Domain.csproj" />
+  <Project Path="AquaLink.Cooperative.Infrastructure/AquaLink.Cooperative.Infrastructure.csproj" />
+  <Project Path="AquaLink.Cooperative.Tests/AquaLink.Cooperative.Tests.csproj" />
   <Project Path="AquaLink.Farmer.API/AquaLink.Farmer.API.csproj" />
   <Project Path="AquaLink.Farmer.Application/AquaLink.Farmer.Application.csproj" />
   <Project Path="AquaLink.Farmer.Domain/AquaLink.Farmer.Domain.csproj" />
