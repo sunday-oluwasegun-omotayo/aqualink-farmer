@@ -98,6 +98,86 @@ public class CooperativesController : ControllerBase
             return BadRequest(new { message = ex.Message });
         }
     }
+
+    [HttpGet("{id:guid}")]
+    [ProducesResponseType(typeof(CooperativeGroupDto), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> GetCooperative(
+    Guid id,
+    CancellationToken cancellationToken)
+    {
+        try
+        {
+            var result = await _sender.Send(
+                new GetCooperativeGroupQuery(id), cancellationToken);
+            return Ok(result);
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
+    }
+
+    [HttpPost("{id:guid}/withdrawals")]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> RequestWithdrawal(
+        Guid id,
+        [FromBody] RequestWithdrawalRequest request,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            var withdrawalId = await _sender.Send(
+                new RequestWithdrawalCommand(
+                    id,
+                    request.RequestedByMemberId,
+                    request.AmountNaira,
+                    request.Reason),
+                cancellationToken);
+
+            return CreatedAtAction(nameof(RequestWithdrawal),
+                new { id, withdrawalId }, new { withdrawalId });
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
+
+    [HttpPatch("{id:guid}/withdrawals/{withdrawalId:guid}/approve")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> ApproveWithdrawal(
+        Guid id,
+        Guid withdrawalId,
+        [FromBody] ApproveWithdrawalRequest request,
+        CancellationToken cancellationToken)
+    {
+        try
+        {
+            await _sender.Send(
+                new ApproveWithdrawalCommand(id, withdrawalId,
+                    request.ApprovedByMemberId),
+                cancellationToken);
+
+            return NoContent();
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(new { message = ex.Message });
+        }
+        catch (InvalidOperationException ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
+    }
 }
 
 public record AddMemberRequest(
@@ -109,3 +189,11 @@ public record RecordContributionRequest(
     Guid MemberId,
     decimal AmountNaira,
     string CycleMonth);
+
+public record RequestWithdrawalRequest(
+    Guid RequestedByMemberId,
+    decimal AmountNaira,
+    string Reason);
+
+public record ApproveWithdrawalRequest(
+    Guid ApprovedByMemberId);
