@@ -3,6 +3,8 @@ using AquaLink.Farmer.Application.Common;
 using AquaLink.Farmer.Application.FarmCycles;
 using AquaLink.Farmer.Application.Interfaces;
 using AquaLink.Farmer.Infrastructure.Persistence;
+using AquaLink.Cooperative.Application.Interfaces;
+using AquaLink.Cooperative.Infrastructure.Persistence;
 using FluentValidation;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -59,6 +61,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     });
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddDbContext<AquaLinkCooperativeDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<ICooperativeDbContext>(provider =>
+    provider.GetRequiredService<AquaLinkCooperativeDbContext>());
 
 var app = builder.Build();
 
