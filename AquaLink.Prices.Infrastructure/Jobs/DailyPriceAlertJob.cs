@@ -60,15 +60,18 @@ public class DailyPriceAlertJob
         // For now we use a test list — replace with real farmer phone query
         var testFarmerPhones = new[]
         {
-            ("test-farmer-id", "08012345678")
+            ("3fa85f64-5717-4562-b3fc-2c963f66afa6", "08012345678")
         };
 
         foreach (var (farmerId, phone) in testFarmerPhones)
         {
+            // Parse OUTSIDE the LINQ query — EF Core can't translate Guid.Parse
+            var farmerGuid = Guid.Parse(farmerId);
+
             // Skip if already sent today
             var alreadySent = await _pricesContext.FarmerAlerts
                 .AnyAsync(a =>
-                    a.FarmerId == Guid.Parse(farmerId) &&
+                    a.FarmerId == farmerGuid &&
                     a.AlertDate == today);
 
             if (alreadySent) continue;
@@ -76,13 +79,14 @@ public class DailyPriceAlertJob
             var success = await _smsService.SendAsync(phone, message);
 
             var alert = FarmerAlert.Create(
-                Guid.Parse(farmerId),
+                farmerGuid,
                 phone,
                 message,
                 today);
 
             _pricesContext.FarmerAlerts.Add(alert);
         }
+    
 
         await _pricesContext.SaveChangesAsync(default);
 

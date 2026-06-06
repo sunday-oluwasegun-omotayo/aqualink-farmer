@@ -17,7 +17,7 @@ public class PricesController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "FieldAgent")]
+    [AllowAnonymous]
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> SubmitPrice(
