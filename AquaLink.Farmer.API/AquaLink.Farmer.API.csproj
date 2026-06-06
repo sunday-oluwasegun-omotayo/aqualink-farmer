@@ -29,6 +29,8 @@
     <ProjectReference Include="..\AquaLink.Farmer.Infrastructure\AquaLink.Farmer.Infrastructure.csproj" />
     <ProjectReference Include="..\AquaLink.Cooperative.Application\AquaLink.Cooperative.Application.csproj" />
     <ProjectReference Include="..\AquaLink.Cooperative.Infrastructure\AquaLink.Cooperative.Infrastructure.csproj" />
+    <ProjectReference Include="..\AquaLink.Prices.Application\AquaLink.Prices.Application.csproj" />
+    <ProjectReference Include="..\AquaLink.Prices.Infrastructure\AquaLink.Prices.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

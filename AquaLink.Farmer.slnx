@@ -11,4 +11,7 @@
   <Project Path="AquaLink.Farmer.Domain/AquaLink.Farmer.Domain.csproj" />
   <Project Path="AquaLink.Farmer.Infrastructure/AquaLink.Farmer.Infrastructure.csproj" />
   <Project Path="AquaLink.Farmer.Tests/AquaLink.Farmer.Tests.csproj" />
+  <Project Path="AquaLink.Prices.Application/AquaLink.Prices.Application.csproj" />
+  <Project Path="AquaLink.Prices.Domain/AquaLink.Prices.Domain.csproj" />
+  <Project Path="AquaLink.Prices.Infrastructure/AquaLink.Prices.Infrastructure.csproj" />
 </Solution>

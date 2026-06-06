@@ -1,11 +1,18 @@
+using AquaLink.Cooperative.Application.Interfaces;
+using AquaLink.Cooperative.Infrastructure.Persistence;
 using AquaLink.Farmer.API.Auth;
 using AquaLink.Farmer.Application.Common;
 using AquaLink.Farmer.Application.FarmCycles;
 using AquaLink.Farmer.Application.Interfaces;
 using AquaLink.Farmer.Infrastructure.Persistence;
-using AquaLink.Cooperative.Application.Interfaces;
-using AquaLink.Cooperative.Infrastructure.Persistence;
+using AquaLink.Prices.Application.Interfaces;
+using AquaLink.Prices.Application.Prices;
+using AquaLink.Prices.Infrastructure.Jobs;
+using AquaLink.Prices.Infrastructure.Persistence;
+using AquaLink.Prices.Infrastructure.Services;
 using FluentValidation;
+using Hangfire;
+using Hangfire.PostgreSql;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -36,6 +43,7 @@ builder.Services.AddMediatR(cfg =>
         typeof(AquaLink.Cooperative.Application.Cooperatives.CreateCooperativeGroupCommand).Assembly);
     cfg.RegisterServicesFromAssembly(
         typeof(AquaLink.Farmer.Application.FarmCycles.GetFarmCycleQuery).Assembly);
+    cfg.RegisterServicesFromAssemblyContaining<SubmitPriceCommand>();
     cfg.AddBehavior(
         typeof(IPipelineBehavior<,>),
         typeof(ValidationBehaviour<,>));
@@ -71,6 +79,26 @@ builder.Services.AddDbContext<AquaLinkCooperativeDbContext>(options =>
 builder.Services.AddScoped<ICooperativeDbContext>(provider =>
     provider.GetRequiredService<AquaLinkCooperativeDbContext>());
 
+builder.Services.AddDbContext<AquaLinkPricesDbContext>(options =>
+    options.UseNpgsql(
+        builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IPricesDbContext>(provider =>
+    provider.GetRequiredService<AquaLinkPricesDbContext>());
+
+// Termii SMS service
+builder.Services.AddHttpClient<ISmsService, TermiiSmsService>();
+
+// Hangfire
+builder.Services.AddHangfire(config => config
+    .UsePostgreSqlStorage(c => c
+        .UseNpgsqlConnection(
+            builder.Configuration
+                .GetConnectionString("DefaultConnection"))));
+
+builder.Services.AddHangfireServer();
+builder.Services.AddScoped<DailyPriceAlertJob>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -78,6 +106,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseHangfireDashboard("/hangfire");
+
+// Schedule the 6am daily price alert
+RecurringJob.AddOrUpdate<DailyPriceAlertJob>(
+    "daily-price-alert",
+    job => job.ExecuteAsync(),
+    "0 6 * * *"); // 6:00 AM every day
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

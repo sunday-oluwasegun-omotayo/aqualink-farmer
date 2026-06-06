@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AquaLink.Farmer.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4927000a7723256c368dd4e5caecd8b2633cceba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2af4dcbeed28c8625f7394f1ae4398d6f29e3336")]
 [assembly: System.Reflection.AssemblyProductAttribute("AquaLink.Farmer.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AquaLink.Farmer.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
