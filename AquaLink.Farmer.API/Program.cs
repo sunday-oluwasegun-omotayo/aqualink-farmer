@@ -99,6 +99,16 @@ builder.Services.AddHangfire(config => config
 builder.Services.AddHangfireServer();
 builder.Services.AddScoped<DailyPriceAlertJob>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AquaLinkWeb", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -115,7 +125,12 @@ RecurringJob.AddOrUpdate<DailyPriceAlertJob>(
     job => job.ExecuteAsync(),
     "0 6 * * *"); // 6:00 AM every day
 
-app.UseHttpsRedirection();
+app.UseCors("AquaLinkWeb");
+
+if (!app.Environment.IsDevelopment())
+{
+    app.UseHttpsRedirection();
+}
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
