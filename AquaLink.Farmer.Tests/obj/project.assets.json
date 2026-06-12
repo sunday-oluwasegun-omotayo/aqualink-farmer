@@ -8,6 +8,19 @@
           "build/netstandard2.0/coverlet.collector.targets": {}
         }
       },
+      "FluentAssertions/8.10.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/FluentAssertions.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/FluentAssertions.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "FluentValidation/12.1.1": {
         "type": "package",
         "compile": {
@@ -735,6 +748,16 @@
         "runtime": {
           "bin/placeholder/AquaLink.Farmer.Domain.dll": {}
         }
+      },
+      "AquaLink.Prices.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/AquaLink.Prices.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AquaLink.Prices.Domain.dll": {}
+        }
       }
     }
   },
@@ -807,6 +830,31 @@
         "coverlet-icon.png",
         "coverlet.collector.6.0.4.nupkg.sha512",
         "coverlet.collector.nuspec"
+      ]
+    },
+    "FluentAssertions/8.10.0": {
+      "sha512": "yGvv+xp0gHFgGwhQcGoDdKIrhLhPi3zYYWWLLHPMctr+G6PWD7QH8L4wqoa5WRZquPbfSV/cP1MraI7ppAHrWw==",
+      "type": "package",
+      "path": "fluentassertions/8.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "FluentAssertions.png",
+        "LICENSE",
+        "fluentassertions.8.10.0.nupkg.sha512",
+        "fluentassertions.nuspec",
+        "lib/net47/FluentAssertions.dll",
+        "lib/net47/FluentAssertions.pdb",
+        "lib/net47/FluentAssertions.xml",
+        "lib/net6.0/FluentAssertions.dll",
+        "lib/net6.0/FluentAssertions.pdb",
+        "lib/net6.0/FluentAssertions.xml",
+        "lib/netstandard2.0/FluentAssertions.dll",
+        "lib/netstandard2.0/FluentAssertions.pdb",
+        "lib/netstandard2.0/FluentAssertions.xml",
+        "lib/netstandard2.1/FluentAssertions.dll",
+        "lib/netstandard2.1/FluentAssertions.pdb",
+        "lib/netstandard2.1/FluentAssertions.xml"
       ]
     },
     "FluentValidation/12.1.1": {
@@ -1762,11 +1810,18 @@
       "type": "project",
       "path": "../AquaLink.Farmer.Domain/AquaLink.Farmer.Domain.csproj",
       "msbuildProject": "../AquaLink.Farmer.Domain/AquaLink.Farmer.Domain.csproj"
+    },
+    "AquaLink.Prices.Domain/1.0.0": {
+      "type": "project",
+      "path": "../AquaLink.Prices.Domain/AquaLink.Prices.Domain.csproj",
+      "msbuildProject": "../AquaLink.Prices.Domain/AquaLink.Prices.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
       "AquaLink.Farmer.Application >= 1.0.0",
+      "AquaLink.Prices.Domain >= 1.0.0",
+      "FluentAssertions >= 8.10.0",
       "Microsoft.NET.Test.Sdk >= 17.14.1",
       "coverlet.collector >= 6.0.4",
       "xunit >= 2.9.3",
@@ -1808,6 +1863,9 @@
           "projectReferences": {
             "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Farmer.Application\\AquaLink.Farmer.Application.csproj": {
               "projectPath": "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Farmer.Application\\AquaLink.Farmer.Application.csproj"
+            },
+            "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Prices.Domain\\AquaLink.Prices.Domain.csproj": {
+              "projectPath": "C:\\Users\\USER\\aqualink-farmer\\AquaLink.Prices.Domain\\AquaLink.Prices.Domain.csproj"
             }
           }
         }
@@ -1829,6 +1887,10 @@
         "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
+          "FluentAssertions": {
+            "target": "Package",
+            "version": "[8.10.0, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[17.14.1, )"

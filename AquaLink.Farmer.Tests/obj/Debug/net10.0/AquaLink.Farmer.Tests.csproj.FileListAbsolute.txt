@@ -119,3 +119,6 @@ C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\refint\Aqu
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\AquaLink.Farmer.Tests.pdb
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\AquaLink.Farmer.Tests.genruntimeconfig.cache
 C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\obj\Debug\net10.0\ref\AquaLink.Farmer.Tests.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\bin\Debug\net10.0\FluentAssertions.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\bin\Debug\net10.0\AquaLink.Prices.Domain.dll
+C:\Users\USER\aqualink-farmer\AquaLink.Farmer.Tests\bin\Debug\net10.0\AquaLink.Prices.Domain.pdb
