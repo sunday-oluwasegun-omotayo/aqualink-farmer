@@ -103,9 +103,12 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AquaLinkWeb", policy =>
     {
-        policy.WithOrigins("http://localhost:5173")
-              .AllowAnyHeader()
-              .AllowAnyMethod();
+        policy.WithOrigins(
+            "http://localhost:5173",
+            "https://aqualink-web.azurestaticapps.net"
+        )
+        .AllowAnyHeader()
+        .AllowAnyMethod();
     });
 });
 
@@ -118,12 +121,20 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHangfireDashboard("/hangfire");
+try
+{
 
-// Schedule the 6am daily price alert
-RecurringJob.AddOrUpdate<DailyPriceAlertJob>(
+    // Schedule the 6am daily price alert
+    RecurringJob.AddOrUpdate<DailyPriceAlertJob>(
     "daily-price-alert",
     job => job.ExecuteAsync(),
     "0 6 * * *"); // 6:00 AM every day
+
+}
+catch (Exception ex)
+{
+    app.Logger.LogWarning(ex, "Failed to schedule recurring job. Continuing startup.");
+}
 
 app.UseCors("AquaLinkWeb");
 
